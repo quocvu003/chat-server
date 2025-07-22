@@ -1,5 +1,7 @@
 // server.js
 const express = require("express");
+require("dotenv").config();
+
 const http = require("http");
 const socketIo = require("socket.io");
 const cors = require("cors");
@@ -10,7 +12,7 @@ const server = http.createServer(app);
 // Cấu hình CORS cho Socket.IO
 const io = socketIo(server, {
   cors: {
-    origin: "*", // URL của React app
+    origin: process.env.CLIENT_DOMAINS ? process.env.CLIENT_DOMAINS.split(",") : "*", // URL của React app
     methods: ["GET", "POST"],
     credentials: true,
   },
