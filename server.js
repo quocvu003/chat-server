@@ -10,7 +10,7 @@ const server = http.createServer(app);
 // Cấu hình CORS cho Socket.IO
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:5173", // URL của React app
+    origin: "*", // URL của React app
     methods: ["GET", "POST"],
     credentials: true,
   },
