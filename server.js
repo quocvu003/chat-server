@@ -9,6 +9,8 @@ const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 
+console.log(process.env.CLIENT_DOMAINS.split(","));
+
 // Cấu hình CORS cho Socket.IO
 const io = socketIo(server, {
   cors: {
